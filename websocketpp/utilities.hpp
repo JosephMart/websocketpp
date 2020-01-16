@@ -72,11 +72,9 @@ private:
  * Based on code from
  * http://stackoverflow.com/questions/3152241/case-insensitive-stdstring-find
  */
-struct ci_less : std::function<bool(std::string, std::string)> {
+struct ci_less {
     // case-independent (ci) compare_less binary function
-    struct nocase_compare
-      : public std::function<bool(unsigned char,unsigned char)>
-    {
+    struct nocase_compare {
         bool operator() (unsigned char const & c1, unsigned char const & c2) const {
             return tolower (c1) < tolower (c2);
         }
